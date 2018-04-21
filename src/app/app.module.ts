@@ -17,6 +17,8 @@ import 'hammerjs';
 import { CatalogComponent } from './catalog/catalog.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 
+import { ItemService } from './services/item.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,7 @@ import { ItemDetailComponent } from './item-detail/item-detail.component';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [],
+  providers: [ItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
