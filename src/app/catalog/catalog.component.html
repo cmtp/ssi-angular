@@ -10,7 +10,7 @@
   </div>
   <div fxFlex>
     <mat-grid-list cols="2" [rowHeight]="'200px'">
-      <mat-grid-tile *ngFor="let item of items">
+      <mat-grid-tile *ngFor="let item of items" (click) = "onSelect(item)">
         <img height="200px" src={{item.image}} alt={{item.name}}>
         <mat-grid-tile-footer>
           <h1 mat-line>{{item.name | uppercase}}</h1>
@@ -18,5 +18,5 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
-  <app-item-detail></app-item-detail>
+  <app-item-detail [item]="selectedItem"></app-item-detail>
 </div>
