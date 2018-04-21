@@ -18,12 +18,16 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 
 import { ItemService } from './services/item.service';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatalogComponent,
-    ItemDetailComponent
+    ItemDetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
