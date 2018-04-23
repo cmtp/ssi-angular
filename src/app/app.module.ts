@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,6 +13,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import 'hammerjs';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -23,6 +27,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { EmployeeService } from './services/employee.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +51,17 @@ import { ContactComponent } from './contact/contact.component';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    FormsModule,
+    MatInputModule,
+    MatCheckboxModule
   ],
-  providers: [ItemService],
-  bootstrap: [AppComponent]
+  providers: [ItemService, EmployeeService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginComponent
+  ],
+
 })
 export class AppModule { }
