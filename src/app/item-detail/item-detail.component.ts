@@ -15,14 +15,14 @@ export class ItemDetailComponent implements OnInit {
   item: Item;
 
   constructor(
-    private itemservice: ItemService,
+    private itemService: ItemService,
     private route: ActivatedRoute,
     private location: Location
   ) { }
 
   ngOnInit() {
     let id = +this.route.snapshot.params['id'];
-    this.item = this.itemservice.getItem(id);
+    this.itemService.getItem(id).then(item => this.item = item);
   }
 
   goBack(): void {
