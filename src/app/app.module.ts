@@ -19,6 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import 'hammerjs';
 import { CatalogComponent } from './catalog/catalog.component';
@@ -61,7 +62,8 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatCheckboxModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [ItemService, EmployeeService],
   bootstrap: [AppComponent],

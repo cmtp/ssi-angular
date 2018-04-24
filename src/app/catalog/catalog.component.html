@@ -8,7 +8,7 @@
       <hr>
     </div>
   </div>
-  <div fxFlex>
+  <div fxFlex *ngIf="items">
     <mat-grid-list cols="2" [rowHeight]="'200px'">
       <mat-grid-tile *ngFor="let item of items" [routerLink]="['/itemdetail', item.id]">
         <img height="200px" src={{item.image}} alt={{item.name}}>
@@ -18,5 +18,9 @@
       </mat-grid-tile>
     </mat-grid-list>
   </div>
+  <div [hidden]="items">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+
   <!--<app-item-detail [item]="selectedItem"></app-item-detail>-->
 </div>
