@@ -5,6 +5,8 @@ import { ItemService } from '../services/item.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import 'rxjs/add/operator/switchMap';
+
 @Component({
   selector: 'app-item-detail',
   templateUrl: './item-detail.component.html',
@@ -13,6 +15,9 @@ import { Location } from '@angular/common';
 export class ItemDetailComponent implements OnInit {
 
   item: Item;
+  itemIds: number[];
+  prev: number;
+  next: number;
 
   constructor(
     private itemService: ItemService,
@@ -21,12 +26,23 @@ export class ItemDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let id = +this.route.snapshot.params['id'];
-    this.itemService.getItem(id).subscribe(item => this.item = item);
+    this.itemService.getItemIds().subscribe(itemIds => this.itemIds = itemIds);
+    this.route.params
+      .switchMap((params: Params) => this.itemService.getItem(+params['id']))
+      .subscribe(item => {
+        this.item = item;
+        this.setPrevNext(item.id);
+      });
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  setPrevNext(itemId: number) {
+    let index = this.itemIds.indexOf(itemId);
+    this.prev = this.itemIds[(this.itemIds.length + index - 1)%this.itemIds.length];
+    this.next = this.itemIds[(this.itemIds.length + index + 1)%this.itemIds.length];
   }
 
 }

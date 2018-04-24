@@ -20,10 +20,10 @@ export class EmployeeService {
   }
 
   getEmployee(id: number): Observable<Employee> {
-    return Observable.of(EMPLOYEES.filter((employee) => (employee.id === id))[0]);
+    return Observable.of(EMPLOYEES.filter((employee) => (employee.id === id))[0]).delay(2000);
   }
 
   getFeaturedEmployee(): Observable<Employee> {
-    return Observable.of(EMPLOYEES.filter((employee) => (employee.featured))[0]);
+    return Observable.of(EMPLOYEES.filter((employee) => (employee.featured))[0]).delay(2000);
   }
 }
