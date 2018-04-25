@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { baseURL } from './shared/baseUrl';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -33,6 +34,7 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { EmployeeService } from './services/employee.service';
 import { LoginComponent } from './login/login.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatListModule,
@@ -65,7 +68,9 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatProgressSpinnerModule
   ],
-  providers: [ItemService, EmployeeService],
+  providers: [ItemService, EmployeeService,
+    {provide: 'BaseURL', useValue: baseURL}
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginComponent
