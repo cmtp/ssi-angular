@@ -47,6 +47,8 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message: ''
     });
+    var form: HTMLFormElement = <HTMLFormElement>document.getElementById('form');
+    form.reset();
   }
 
 }
